@@ -107,7 +107,7 @@ watch(
         <p class="mt-1 text-sm text-slate-300">
           Score: <span class="font-semibold text-amber-300">{{ anime.score ?? 'N/A' }}</span>
           Episodes:
-          <span class="font-semibold text-cyan-300">{{ anime.episodes ?? 'Unknown' }}</span>
+          <span class="font-semibold text-emerald-300">{{ anime.episodes ?? 'Unknown' }}</span>
           Rating:
           <span class="font-semibold text-pink-300">{{ anime.rating || 'Unknown' }}</span>
         </p>
@@ -117,7 +117,7 @@ watch(
         <button
           v-if="needsTruncation"
           type="buton"
-          class="ml-2 text-cyan-300 underline-offset-4 hover:underline"
+          class="ml-2 text-purple-300 underline-offset-4 hover:underline"
           @click="synopsisExpanded = !synopsisExpanded"
         >
           {{ synopsisExpanded ? 'Show less' : 'Read more' }}
@@ -126,7 +126,7 @@ watch(
       <div class="flex flex-wrap gap-3">
         <button
           type="button"
-          class="rounded-full border border-cyan-300/60 bg-cyan-400/15 px-4 py-2 text-sm font-semibold text-cyan-100 transition"
+          class="rounded-full border border-purple-300/60 bg-purple-400/15 px-4 py-2 text-sm font-semibold text-purple-100 transition"
           :disabled="inWatchlist"
           @click="emit('add', anime)"
         >
