@@ -66,6 +66,7 @@ const spinLabel = computed(() => {
             :anime="anime"
           />
         </section>
+        <WatchList />
       </div>
     </div>
   </main>
