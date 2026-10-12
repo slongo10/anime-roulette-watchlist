@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "Anime Roulette Machine",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,18 +10,21 @@
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "format": "prettier --write src/",
-    "format:check": "prettier --check src/"
+    "format:check": "prettier --check src/",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.3",
+    "@cloudflare/vite-plugin": "1.63.1",
     "@vueuse/core": "^15.0.0",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.11.0",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.42",
-    "vue-router": "^4.6.4"
+    "vue-router": "^4.6.4",
+    "wrangler": "^4.149.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.8",
