@@ -19,14 +19,15 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['add'])
 const synopsisExpanded = ref(false)
 
 const animeImage = computed(() => {
   return (
     props.anime?.images?.jpg?.large_image_url ||
     props.anime?.images?.jpg?.image_url ||
-    props.anime?.images?.wpg?.large_image_url ||
-    props.anime?.images?.wpg?.image_url ||
+    props.anime?.images?.webp?.large_image_url ||
+    props.anime?.images?.webp?.image_url ||
     ''
   )
 })
@@ -126,7 +127,7 @@ watch(
         <button
           type="button"
           class="rounded-full border border-cyan-300/60 bg-cyan-400/15 px-4 py-2 text-sm font-semibold text-cyan-100 transition"
-          :disabled="inWatchList"
+          :disabled="inWatchlist"
           @click="emit('add', anime)"
         >
           {{ inWatchlist ? 'In Watchlist' : 'Add to Watchlist' }}

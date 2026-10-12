@@ -4,7 +4,8 @@ import AnimeCard from '@/components/AnimeCard.vue'
 import WatchList from '@/components/WatchList.vue'
 import { useAnimeRoulette } from '@/composables/useAnimeRoulette'
 
-const { anime, loading, error, spin, cooldownLeft } = useAnimeRoulette()
+const { anime, loading, error, spin, cooldownLeft, addToWatchList, watchlist } = useAnimeRoulette()
+
 const spinDisabled = computed(() => loading.value || cooldownLeft.value > 0)
 
 const spinLabel = computed(() => {
@@ -65,9 +66,10 @@ const spinLabel = computed(() => {
             :loading="loading"
             :error="error"
             :anime="anime"
+            @add="addToWatchList"
           />
         </section>
-        <WatchList />
+        <WatchList :items="watchlist" />
       </div>
     </div>
   </main>
