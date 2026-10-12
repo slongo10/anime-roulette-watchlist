@@ -4,7 +4,17 @@ import AnimeCard from '@/components/AnimeCard.vue'
 import WatchList from '@/components/WatchList.vue'
 import { useAnimeRoulette } from '@/composables/useAnimeRoulette'
 
-const { anime, loading, error, spin, cooldownLeft, addToWatchList, watchlist } = useAnimeRoulette()
+const {
+  anime,
+  loading,
+  error,
+  spin,
+  cooldownLeft,
+  addToWatchList,
+  watchlist,
+  isInWatchlist,
+  removeFromWatchlist,
+} = useAnimeRoulette()
 
 const spinDisabled = computed(() => loading.value || cooldownLeft.value > 0)
 
@@ -62,14 +72,19 @@ const spinLabel = computed(() => {
               Rate-limited. Try again in {{ cooldownLeft }}s.
             </p>
           </div>
+
           <AnimeCard
             :loading="loading"
             :error="error"
             :anime="anime"
+            :in-watchlist="Boolean(anime && isInWatchlist(anime.mal_id))"
             @add="addToWatchList"
           />
         </section>
-        <WatchList :items="watchlist" />
+        <WatchList
+          :items="watchlist"
+          @remove="removeFromWatchlist"
+        />
       </div>
     </div>
   </main>

@@ -102,6 +102,13 @@ export function useAnimeRoulette() {
         '',
     })
   }
+  const removeFromWatchlist = (malId) => {
+    watchlist.value = watchlist.value.filter((watchlistAnime) => watchlistAnime.mal_id !== malId)
+  }
+
+  const isInWatchlist = (malId) => {
+    return watchlist.value.some((watchlistAnime) => watchlistAnime.mal_id === malId)
+  }
 
   return {
     anime,
@@ -111,5 +118,7 @@ export function useAnimeRoulette() {
     cooldownLeft,
     watchlist,
     addToWatchList,
+    removeFromWatchlist,
+    isInWatchlist,
   }
 }
